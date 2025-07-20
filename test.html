@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page for Jizzr Extension</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333;
+        }
+        .test-section {
+            background: #f5f5f5;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        button {
+            background: #007cba;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #005a87;
+        }
+    </style>
+</head>
+<body>
+    <h1>Jizzr Test Page</h1>
+    
+    <div class="test-section">
+        <h2>Static Content Test</h2>
+        <p>This is a test page with various liquid related words that should be replaced:</p>
+        <ul>
+            <li>I love water in the morning</li>
+            <li>The coffee was hot and delicious</li>
+            <li>Orange juice is my favorite beverage</li>
+            <li>The soup was thick and creamy</li>
+            <li>Honey is a natural liquid sweetener</li>
+            <li>The milk in the fridge has expired</li>
+            <li>Wine pairs well with cheese</li>
+            <li>The oil spilled on the kitchen floor</li>
+            <li>I enjoy a good smoothie after working out</li>
+            <li>The cocktail was expertly mixed</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>Dynamic Content Test</h2>
+        <p>Click the button below to add new content dynamically:</p>
+        <button onclick="addDynamicContent()">Add Random Liquid Text</button>
+        <div id="dynamic-content"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Mixed Case Test</h2>
+        <p>Testing different cases:</p>
+        <p>WATER, Water, water, WaTeR should all be replaced.</p>
+        <p>COFFEE and Coffee and coffee should work too.</p>
+        <p>The LIQUID and liquid and Liquid in this sentence.</p>
+    </div>
+
+    <script>
+        const liquidWords = [
+            'I just spilled water all over my desk',
+            'The coffee shop serves the best beverages in town',
+            'Orange juice is packed with vitamin C',
+            'The soup of the day is tomato basil',
+            'Honey drips slowly from the spoon',
+            'Fresh milk makes the best cereal',
+            'Red wine complements the dinner perfectly',
+            'Olive oil is essential for cooking',
+            'My morning smoothie has banana and berries',
+            'The cocktail menu has many creative options',
+            'Hot tea warms you up on cold days',
+            'The sauce adds flavor to the pasta',
+            'Maple syrup makes pancakes delicious',
+            'Chicken broth is the base for this recipe',
+            'Heavy cream makes the dessert rich',
+            'This liquid detergent cleans well',
+            'The fluid mechanics class is challenging',
+            'Beer and wine are popular alcoholic drinks',
+            'Soda contains too much sugar'
+        ];
+
+        function addDynamicContent() {
+            const container = document.getElementById('dynamic-content');
+            const randomText = liquidWords[Math.floor(Math.random() * liquidWords.length)];
+            const newP = document.createElement('p');
+            newP.textContent = `${new Date().toLocaleTimeString()}: ${randomText}`;
+            container.appendChild(newP);
+        }
+
+        // Add some content automatically after page load
+        setTimeout(() => {
+            addDynamicContent();
+        }, 1000);
+
+        setTimeout(() => {
+            addDynamicContent();
+        }, 2000);
+    </script>
+</body>
+</html>

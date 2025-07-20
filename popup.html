@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 400px;
+      min-height: 500px;
+      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      color: #333;
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .header p {
+      color: #666;
+      margin: 5px 0 0 0;
+      font-size: 14px;
+    }
+
+    .toggle-section {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 50px;
+      height: 24px;
+      background: #ccc;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .toggle-switch.active {
+      background: #4CAF50;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+
+    .toggle-switch.active .toggle-slider {
+      transform: translateX(26px);
+    }
+
+    .dictionary-section {
+      margin-bottom: 20px;
+    }
+
+    .dictionary-section h3 {
+      margin: 0 0 10px 0;
+      color: #333;
+    }
+
+    .word-pair {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 8px;
+      align-items: center;
+    }
+
+    .word-pair input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .word-pair .arrow {
+      color: #666;
+      font-weight: bold;
+    }
+
+    .word-pair .replacement-display {
+      flex: 1;
+      padding: 8px;
+      background: #e8f5e8;
+      border: 1px solid #4CAF50;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #2e7d32;
+      text-align: center;
+    }
+
+    .word-pair .remove-btn {
+      background: #ff4444;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .word-pair .remove-btn:hover {
+      background: #cc0000;
+    }
+
+    .add-word-btn {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .add-word-btn:hover {
+      background: #45a049;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .btn-primary {
+      background: #2196F3;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #1976D2;
+    }
+
+    .btn-secondary {
+      background: #f44336;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: #d32f2f;
+    }
+
+    .status-message {
+      margin-top: 10px;
+      padding: 8px;
+      border-radius: 4px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .status-success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .dictionary-container {
+      max-height: 250px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px;
+      background: #fafafa;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Jizzr</h1>
+    <p>Make everything more jizzy.</p>
+  </div>
+
+  <div class="toggle-section">
+    <div class="toggle-container">
+      <span>Enable Extension</span>
+      <div class="toggle-switch" id="enableToggle">
+        <div class="toggle-slider"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dictionary-section">
+    <h3>Word Dictionary</h3>
+    <button class="add-word-btn" id="addWordBtn">+ Add New Word</button>
+    
+    <div class="dictionary-container" id="dictionaryContainer">
+      <!-- Word pairs will be dynamically added here -->
+    </div>
+  </div>
+
+  <div class="action-buttons">
+    <button class="btn btn-primary" id="saveBtn">Save Settings</button>
+    <button class="btn btn-secondary" id="resetBtn">Reset to Default</button>
+  </div>
+
+  <div class="action-buttons">
+    <button class="btn btn-primary" id="replaceNowBtn">Replace Words Now</button>
+  </div>
+
+  <div id="statusMessage"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
