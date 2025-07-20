@@ -115,7 +115,7 @@ class WordReplacer {
       let matchedWords = []; // Track which words matched this node
 
       this.wordList.forEach(word => {
-        const regex = new RegExp(word, 'gi');
+        const regex = new RegExp(`\\b${word}\\b`, 'gi');
         if (regex.test(text)) {
           text = text.replace(regex, 'jizz');
           modified = true;
@@ -170,7 +170,7 @@ class WordReplacer {
           
           // Apply only the remaining words
           remainingMatches.forEach(word => {
-            const regex = new RegExp(word, 'gi');
+            const regex = new RegExp(`\\b${word}\\b`, 'gi');
             text = text.replace(regex, 'jizz');
           });
           
