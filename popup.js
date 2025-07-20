@@ -59,6 +59,7 @@ this.defaultWordList = [
     this.replaceNowBtn = document.getElementById('replaceNowBtn');
     this.dictionaryContainer = document.getElementById('dictionaryContainer');
     this.statusMessage = document.getElementById('statusMessage');
+    this.searchInput = document.getElementById('searchInput');
   }
 
   async loadSettings() {
@@ -98,6 +99,10 @@ this.defaultWordList = [
     this.replaceNowBtn.addEventListener('click', () => {
       this.replaceWordsNow();
     });
+    
+    this.searchInput.addEventListener('input', () => {
+      this.filterWordList();
+    });
   }
 
   updateToggleState() {
@@ -106,6 +111,22 @@ this.defaultWordList = [
     } else {
       this.enableToggle.classList.remove('active');
     }
+  }
+  
+  filterWordList() {
+    const searchTerm = this.searchInput.value.toLowerCase().trim();
+    const wordPairs = this.dictionaryContainer.querySelectorAll('.word-pair');
+    
+    wordPairs.forEach(wordPair => {
+      const input = wordPair.querySelector('.original-word');
+      const word = input.value.toLowerCase();
+      
+      if (searchTerm === '' || word.includes(searchTerm)) {
+        wordPair.style.display = 'flex';
+      } else {
+        wordPair.style.display = 'none';
+      }
+    });
   }
 
   renderWordList() {

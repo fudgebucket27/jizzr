@@ -78,6 +78,26 @@
       margin: 0 0 10px 0;
       color: #333;
     }
+    
+    .search-container {
+      margin-bottom: 15px;
+      width: 100%;
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    
+    .search-input:focus {
+      border-color: #2196F3;
+      outline: none;
+      box-shadow: 0 0 5px rgba(33, 150, 243, 0.3);
+    }
 
     .word-pair {
       display: flex;
@@ -219,6 +239,9 @@
 
   <div class="dictionary-section">
     <h3>Word Dictionary</h3>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search words..." class="search-input">
+    </div>
     <button class="add-word-btn" id="addWordBtn">+ Add New Word</button>
     
     <div class="dictionary-container" id="dictionaryContainer">
