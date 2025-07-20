@@ -41,7 +41,11 @@ class WordReplacer {
     'oral rehydration solution','electrolyte drink','cough syrup','tincture',
     'sap','resin','lava','magma','mud','slurry','sludge',
     'cooling liquid','heat transfer fluid','dielectric fluid','liquid crystal','liquid metal','solder','flux',
-    'fog juice','bubble solution','slime','ink wash'
+    'fog juice','bubble solution','slime','ink wash', 'pepsi', 'coke', 'sprite', 'fanta', 'mountain dew', 'dr pepper', 'root beer', 'ginger beer', 'cream soda', 'sarsaparilla',
+    'squash','cordial','iced coffee','iced chocolate','iced latte','iced mocha','iced matcha','iced chai','iced tea latte','iced herbal tea','iced green tea',
+    'iced fruit tea','iced black tea','iced oolong tea','iced rooibos tea','iced yerba mate','iced matcha latte','iced chai latte','iced green tea latte','iced herbal tea latte',
+    'iced milk tea','iced bubble tea','iced coffee latte','iced mocha latte','iced caramel latte','iced vanilla latte','iced hazelnut latte','iced white chocolate mocha','iced peppermint mocha','iced cinnamon dolce latte',
+    'iced matcha green tea latte','iced chai tea latte','iced rooibos latte','iced oolong latte','iced fruit tea latte','iced herbal tea latte','iced green tea matcha latte','iced coffee mocha latte','iced caramel macchiato latte','iced vanilla bean latte'
     ];
 
     this.wordList = [];
